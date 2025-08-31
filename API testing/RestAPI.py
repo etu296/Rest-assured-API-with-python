@@ -1,10 +1,7 @@
 import unittest
 import requests
 import json
-#configuration
-BASE_URL = "https://restful-booker.herokuapp.com"
-USERNAME = "admin"
-PASSWORD = "password123"
+from utils.config import BASE_URL , USERNAME, PASSWORD
 
 class BookingTests(unittest.TestCase):
     @classmethod
@@ -23,6 +20,17 @@ class BookingTests(unittest.TestCase):
                 },
                 "additionalneeds" : "Breakfast"
         }
+    def test_00_verify_api_available(self):
+        """Verify the API is rechable"""
+        print("\n[Verifying the API is reachable]")
+        try:
+            response = requests.get(BASE_URL, timeout = 5)
+            print(f"API status code: {response.status_code}")
+            self.assertEqual(response.status_code, 200, "API is not reachable:{response.status_code}")
+            print("API is reachable")
+        except Exception as e:
+            self.fail(f"API is not reachable: {e}")
+
     def test_01_authentication(self):
         """get token by authentication"""
         print("\n[Getting authentication token]")
