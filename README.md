@@ -34,7 +34,7 @@ Make sure you have installed the following:
 3. Run test :
 
    ```bash
-    pytest -v API/tests/
+    pytest -v restAPI/tests/
   
 ## ✍️ Author
 
