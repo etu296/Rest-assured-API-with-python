@@ -1,7 +1,8 @@
 import unittest
 import requests
 import json
-from utils.config import BASE_URL , USERNAME, PASSWORD
+from restAPI.utils.config import BASE_URL, USERNAME, PASSWORD
+
 
 class BookingTests(unittest.TestCase):
     @classmethod
